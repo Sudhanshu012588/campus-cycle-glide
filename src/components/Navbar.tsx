@@ -17,7 +17,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <Bike className="h-8 w-8 text-cycle-green-600" />
-            <span className="text-xl font-bold">CampusCycle</span>
+            <span className="text-xl font-bold">UniRide</span>
           </div>
 
           {/* Desktop Navigation */}
