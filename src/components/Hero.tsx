@@ -69,7 +69,7 @@ const Hero = () => {
                   <h3 className="font-bold text-lg mb-2">Standard E-Cycle</h3>
                   <p className="text-gray-600 mb-4">Our most popular model for quick campus commutes</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-cycle-green-600 font-bold">$2/hour</span>
+                    <span className="text-cycle-green-600 font-bold">₹2/Minute</span>
                     <Button size="sm" className="bg-cycle-green-600 hover:bg-cycle-green-700">
                       Find Nearby
                     </Button>

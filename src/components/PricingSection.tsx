@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Check, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,11 +11,10 @@ import {
 const PricingSection = () => {
   const [billingPeriod, setBillingPeriod] = useState<'hourly' | 'monthly'>('hourly');
 
-  const plans = [
+  const hourlyPlans = [
     {
-      name: "Basic Rider",
-      hourlyPrice: "$2",
-      monthlyPrice: "$20",
+      name: "Per-Minute Plan",
+      price: "₹2/Minute",
       description: "Perfect for occasional riders",
       features: [
         "Unlimited 30-minute rides",
@@ -29,9 +27,8 @@ const PricingSection = () => {
       buttonVariant: "outline" as const,
     },
     {
-      name: "Campus Commuter",
-      hourlyPrice: "$3",
-      monthlyPrice: "$35",
+      name: "Hourly Plan",
+      price: "₹79/Per-Hour",
       description: "For regular campus travelers",
       features: [
         "Unlimited 60-minute rides",
@@ -45,9 +42,8 @@ const PricingSection = () => {
       buttonVariant: "default" as const,
     },
     {
-      name: "University Explorer",
-      hourlyPrice: "$5",
-      monthlyPrice: "$50",
+      name: "Daily Plan",
+      price: "₹199/Day",
       description: "For students who ride everywhere",
       features: [
         "Unlimited rides, any duration",
@@ -63,6 +59,42 @@ const PricingSection = () => {
     },
   ];
 
+  const monthlyPlans = [
+    {
+      name: "Per Month Plan",
+      price: "₹2000/Month",
+      description: "For regular campus travelers",
+      features: [
+        "Unlimited 60-minute rides",
+        "Access to all e-cycle models",
+        "Priority booking",
+        "No surge pricing",
+        "Free cancellations",
+      ],
+      popular: true,
+      buttonText: "Choose Plan",
+      buttonVariant: "default" as const,
+    },
+    {
+      name: "Semester-Wise Plan",
+      price: "₹5000/Semester",
+      description: "For students who ride everywhere",
+      features: [
+        "Unlimited rides, any duration",
+        "Premium e-cycles with extended range",
+        "Exclusive cycle stations access",
+        "Free guest passes",
+        "Monthly maintenance check",
+        "Cycle accessories included",
+      ],
+      popular: false,
+      buttonText: "Choose Plan",
+      buttonVariant: "outline" as const,
+    },
+  ];
+
+  const plans = billingPeriod === 'hourly' ? hourlyPlans : monthlyPlans;
+
   return (
     <section id="pricing" className="section-padding bg-gray-50">
       <div className="container mx-auto px-4">
@@ -71,8 +103,7 @@ const PricingSection = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Choose a plan that works for your campus commuting needs.
           </p>
-          
-          {/* Toggle between hourly and monthly */}
+
           <div className="flex justify-center mt-8">
             <div className="bg-white p-1 rounded-lg shadow-sm inline-flex">
               <button
@@ -99,7 +130,7 @@ const PricingSection = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className={`grid grid-cols-1 md:grid-cols-${plans.length} gap-8`}>
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -112,20 +143,18 @@ const PricingSection = () => {
                   Most Popular
                 </div>
               )}
-              
+
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                 <p className="text-gray-600 mb-4">{plan.description}</p>
-                
+
                 <div className="mb-6">
-                  <span className="text-4xl font-bold">
-                    {billingPeriod === 'hourly' ? plan.hourlyPrice : plan.monthlyPrice}
-                  </span>
+                  <span className="text-4xl font-bold">{plan.price}</span>
                   <span className="text-gray-600 ml-2">
-                    {billingPeriod === 'hourly' ? '/hour' : '/month'}
+                    {/* {billingPeriod === 'hourly' ? '//Minute' : '/month'} */}
                   </span>
                 </div>
-                
+
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
@@ -134,9 +163,9 @@ const PricingSection = () => {
                     </li>
                   ))}
                 </ul>
-                
+
                 <Button 
-                  variant={plan.buttonVariant} 
+                  variant={plan.buttonVariant}
                   className={`w-full ${plan.popular ? 'bg-cycle-green-600 hover:bg-cycle-green-700' : ''}`}
                 >
                   {plan.buttonText}
@@ -145,7 +174,7 @@ const PricingSection = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-12 bg-white rounded-lg p-6 shadow">
           <h3 className="text-xl font-bold mb-4 flex items-center">
             Additional Information
@@ -160,7 +189,7 @@ const PricingSection = () => {
               </Tooltip>
             </TooltipProvider>
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
               <h4 className="font-semibold mb-2">Student Discounts</h4>
@@ -172,11 +201,11 @@ const PricingSection = () => {
             </div>
             <div>
               <h4 className="font-semibold mb-2">Damage Protection</h4>
-              <p className="text-gray-600 text-sm">Optional $5/month coverage for damage and theft</p>
+              <p className="text-gray-600 text-sm">Optional ₹5/month coverage for damage and theft</p>
             </div>
             <div>
               <h4 className="font-semibold mb-2">Late Fees</h4>
-              <p className="text-gray-600 text-sm">$5 fee applies for returns over 15 minutes past reservation end</p>
+              <p className="text-gray-600 text-sm">₹5 fee applies for returns over 15 minutes past reservation end</p>
             </div>
           </div>
         </div>

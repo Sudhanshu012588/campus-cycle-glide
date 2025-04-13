@@ -7,40 +7,58 @@ import { Button } from '@/components/ui/button';
 const bikeStations = [
   {
     id: 1,
-    name: "Main Library Station",
-    location: "In front of University Library",
+    name: "Main Building",
+    location: "In front of Main Building",
     coordinates: { lat: 34.0522, lng: -118.2437 },
     bikes: 8,
     available: true
   },
   {
     id: 2,
-    name: "Student Union Station",
-    location: "Next to Student Union Building",
+    name: "Leacture Hall Complex",
+    location: "In front of Lalitgiri Lecture Hall",
     coordinates: { lat: 34.0548, lng: -118.2428 },
     bikes: 5,
     available: true
   },
   {
     id: 3,
-    name: "Engineering Building",
-    location: "Engineering Department Entrance",
+    name: "MHR",
+    location: "In front of Mahanadi Hall",
     coordinates: { lat: 34.0535, lng: -118.2410 },
     bikes: 3,
     available: true
   },
   {
     id: 4,
-    name: "Campus Housing",
-    location: "Dormitory Complex",
+    name: "GHR",
+    location: "In front of Ganga Hall",
     coordinates: { lat: 34.0510, lng: -118.2450 },
     bikes: 0,
     available: false
   },
+  
   {
     id: 5,
-    name: "Sports Center",
-    location: "Next to Campus Gym",
+    name: "RHR",
+    location: "In front of RHR",
+    coordinates: { lat: 34.0530, lng: -118.2460 },
+    bikes: 6,
+    available: true
+  },
+  
+  {
+    id: 6,
+    name: "SMS",
+    location: "In SMS Parking Lot",
+    coordinates: { lat: 34.0530, lng: -118.2460 },
+    bikes: 6,
+    available: true
+  },
+  {
+    id: 7,
+    name: "Gymkhana",
+    location: "In front of Gymkhana",
     coordinates: { lat: 34.0530, lng: -118.2460 },
     bikes: 6,
     available: true
